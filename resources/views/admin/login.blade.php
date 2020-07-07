@@ -21,18 +21,24 @@
 <body class="hold-transition login-page">
 <div class="login-box">
   <div class="login-logo">
-    <a href="../../index2.html"><b>Admin</b>KOPMA</a>
+    <b>Admin</b>KOPMA
   </div>
   <!-- /.login-logo -->
   <div class="card">
     <div class="card-body login-card-body">
       <p class="login-box-msg">Sign in untuk memulai sesi Anda</p>
 
-      <form action="../../index3.html" method="post">
+      <form method="POST" action="{{ route('login')}}">
+      @csrf  
+      @if (session('error'))
+          @alert(['type' => 'danger'])
+              {{ session('error')}}
+          @endalert
+      @endif
         <div class="input-group mb-3">
           <input type="number" class="form-control" placeholder="NAK">
           <div class="input-group-append">
-            <div class="input-group-text">
+            <div class="input-group-text" name="nak">
               <span class="fas fa-envelope"></span>
             </div>
           </div>
@@ -40,7 +46,7 @@
         <div class="input-group mb-3">
           <input type="password" class="form-control" placeholder="Password">
           <div class="input-group-append">
-            <div class="input-group-text">
+            <div class="input-group-text" name="password">
               <span class="fas fa-lock"></span>
             </div>
           </div>

@@ -26,7 +26,7 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = RouteServiceProvider::HOME;
+    protected $redirectTo = '/admin/dashboardadmin';
 
     /**
      * Create a new controller instance.
@@ -36,5 +36,18 @@ class LoginController extends Controller
     public function __construct()
     {
         $this->middleware('guest')->except('logout');
+    }
+
+    public function login(Request $request){
+        $this->validate($request, [
+            'NAK' => 'required|max:255',
+            'password' => 'required|confirmed|min:7',
+        ]);
+
+        if(auth()->attempt(['NAK' => $request->nak, 'password' => $request->password, 'status' => 1])){
+            return redirect()->intended('dashboardadmin');
+        }
+
+        return redirect()->back()->with(['error' => 'NAK atau Password salah']);
     }
 }

@@ -13,7 +13,7 @@ class dashboardAdmin extends Controller
      */
     public function index()
    {
-       return view('admin/dashboardadmin');
+       return view('admin.dashboardadmin');
    }
 
     /**

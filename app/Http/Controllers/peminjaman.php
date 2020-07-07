@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class peminjaman extends Controller
 {
@@ -13,7 +14,8 @@ class peminjaman extends Controller
      */
     public function index()
    {
-       return view('admin/tabel_peminjaman');
+       $peminjaman = DB::table('peminjaman')->get();
+       return view('admin.tabel_peminjaman', ['data_peminjaman' => $peminjaman]);
    }
 
     /**

@@ -12,16 +12,22 @@
 */
 
 Route::get('/', function () {
-    return view('admin/adminlte');
+    return redirect(route('login'));
 });
+
+
 
 Route::get('/dashboard', 'dashboardadmin@index');
 
-Route::get('/login', 'loginAdmin@index');
-
-Route::get('/t', 'template@index');
+Route::get('login', 'loginAdmin@index');
 
 Route::get('/p', 'peminjaman@index');
+
+Route::get('/ruang', 'ruang@index');
+
+Route::get('/barang', 'barang@index');
+
+Route::get('/user', 'daftarUser@index');
 
 // USER
 
