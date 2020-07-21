@@ -1,6 +1,27 @@
 @extends('admin.layout')
 @section('title', 'Tabel Peminjaman')
 @section('content')
+
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1 class="m-0 text-dark">Tabel Peminjaman</h1>
+          </div>
+          <!-- /.col -->
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+            <li class="breadcrumb-item"><a href="/dashboard">Home</a>/<a href="/peminjaman">Tabel Peminjaman</a></li>
+              <!-- <li class="breadcrumb-item active">Dashboard v1</li> -->
+            </ol>
+          </div><!-- /.col -->
+        </div><!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </div>
+    <!-- /.content-header -->
   
 
     <!-- Main content -->
@@ -24,8 +45,8 @@
                   <th>Tanggal</th>
                   <th>Waktu_mulai</th>
                   <th>Waktu_selesai</th>
+                  <th>Aksi</th>
                   <th>Ubah</th>
-                  <th>Hapus</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -39,9 +60,9 @@
                   <td>{{$data->tanggal}}</td>
                   <td>{{$data->waktu_mulai}}</td>
                   <td>{{$data->waktu_selesai}}</td>
+                  <td>{{$data->aksi}}</td>
                   <div class="row">
-                  <td><button type="button" class="btn btn-primary" onClick="handleClickUbah()">Ubah</button></td>
-                  <td><button type="button" class="btn btn-danger" onClick="handleClickHapus()">Hapus</button></td>
+                  <td><a type="button" class="btn btn-primary" href="/p/edit/{{ $data->id }}">Ubah</a></td>
                   </div>
                 </tr>
                 @endforeach

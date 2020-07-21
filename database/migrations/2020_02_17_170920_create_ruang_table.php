@@ -15,6 +15,10 @@ class CreateRuangTable extends Migration
     {
         Schema::create('ruang', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('nama_ruang', 50);
+            $table->longtext('alamat_ruang');
+            $table->longtext('deskripsi');
+            $table->integer('kuota');
             $table->timestamps();
         });
     }

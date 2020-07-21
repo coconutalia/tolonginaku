@@ -6,7 +6,7 @@
   <title>AdminLTE 3 | Log in</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
-
+  
   <!-- Font Awesome -->
   <link rel="stylesheet" type="text/css" href="assets/plugins/fontawesome-free/css/all.min.css">
   <!-- Ionicons -->
@@ -28,13 +28,29 @@
     <div class="card-body login-card-body">
       <p class="login-box-msg">Sign in untuk memulai sesi Anda</p>
 
-      <form method="POST" action="{{ route('login')}}">
-      @csrf  
-      @if (session('error'))
-          @alert(['type' => 'danger'])
-              {{ session('error')}}
-          @endalert
+      @if(isset(Auth::admin()->nak))
+        <script>window.location="/dashboard";</script>
       @endif
+
+      @if ($message = Session::get('error'))
+      <div class="alert alert-danger alert-block">
+        <button type="button" class="close" data-dismiss="alert">x</button>
+        <strong>{{ $message }}</strong>
+      </div>
+      @endif
+
+      @if (count($errors) > 0)
+        <div class="alert alert-danger">
+          <ul>
+          @foreach($errors->all() as $error)
+            <li>{{ $error}}</li>
+          @endforeach
+          </ul>
+        </div>
+      @endif
+
+      <form method="POST" action="{{ url('/login/checklogin')}}">
+      {{ csrf_field() }}
         <div class="input-group mb-3">
           <input type="number" class="form-control" placeholder="NAK">
           <div class="input-group-append">
@@ -51,18 +67,9 @@
             </div>
           </div>
         </div>
-        <div class="row">
-          <div class="col-8">
-            <div class="icheck-primary">
-              <input type="checkbox" id="remember">
-              <label for="remember">
-                Tetap Masuk
-              </label>
-            </div>
-          </div>
           <!-- /.col -->
-          <div class="col-4">
-            <button type="submit" class="btn btn-primary btn-block">Sign In</button>
+          <div>
+            <button type="submit" class="btn btn-primary btn-block center">Sign In</button>
           </div>
           <!-- /.col -->
         </div>

@@ -17,6 +17,66 @@ class barang extends Controller
         $barang = DB::table('barang')->get();
         return view('admin.tabel_barang', ['data_barang' => $barang]);
    }
+   public function edit($id)
+    {
+        // mengambil data pegawai berdasarkan id yang dipilih
+        $barang = DB::table('barang')->where('id',$id)->get();
+        // passing data pegawai yang didapat ke view edit.blade.php
+        return view('admin.edit_barang',['data_barang' => $barang]);
+    
+    }
+
+    // update data pegawai
+    public function update(Request $request)
+    {
+
+        // update data pegawai
+        DB::table('barang')->where('id',$request->id)->update([
+            'nama_barang' => $request->nama_barang,
+            'total_barang' => $request->total_barang,
+            'barang_tersedia' => $request->barang_tersedia,
+            'jumlah_pinjam' => $request->jumlah_pinjam,
+            'jumlah_request' => $request->jumlah_request,
+            'jenis' => $request->jenis
+        ]);
+        // alihkan halaman ke halaman pegawai
+    return redirect('/barang');
+    }
+
+    public function hapus($id)
+    {
+            // menghapus data pegawai berdasarkan id yang dipilih
+            DB::table('barang')->where('id',$id)->delete();
+                
+            // alihkan halaman ke halaman pegawai
+            return redirect('/barang');
+    }
+
+    public function tambah()
+    {
+    
+        // memanggil view tambah
+        return view('admin.tambah_barang');
+    
+    }
+    // method untuk insert data ke table pegawai
+    public function store(Request $request)
+    {
+        // insert data ke table pegawai
+        DB::table('barang')->insert([
+            'id' => $request->id,
+            'nama_barang' => $request->nama_barang,
+            'total_barang' => $request->total_barang,
+            'barang_tersedia' => $request->barang_tersedia,
+            'jumlah_pinjam' => $request->jumlah_pinjam,
+            'jumlah_request' => $request->jumlah_request,
+            'jenis' => $request->jenis
+        ]);
+        // alihkan halaman ke halaman pegawai
+        return redirect('/barang');
+    
+    }
+
 
     /**
      * Show the form for creating a new resource.
@@ -34,10 +94,6 @@ class barang extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
-    {
-        //
-    }
 
     /**
      * Display the specified resource.
@@ -56,10 +112,6 @@ class barang extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
-    {
-        //
-    }
 
     /**
      * Update the specified resource in storage.
@@ -68,10 +120,6 @@ class barang extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
-    {
-        //
-    }
 
     /**
      * Remove the specified resource from storage.

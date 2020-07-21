@@ -1,6 +1,26 @@
 @extends('admin.layout')
-@section('title', 'Tabel Daftar User')
+@section('title', 'Tabel Ruang')
 @section('content')
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1 class="m-0 text-dark">Tabel Ruang</h1>
+          </div>
+          <!-- /.col -->
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+            <li class="breadcrumb-item"><a href="/dashboard">Home</a>/<a href="/ruang">Tabel Ruang</a></li>
+              <!-- <li class="breadcrumb-item active">Dashboard v1</li> -->
+            </ol>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- /.content-header -->
     <!-- Main content -->
     <section class="content">
       <div class="row">
@@ -8,6 +28,9 @@
           <div class="card">
             <div class="card-header">
               <h3 class="card-title">Tabel daftar ruangan KOPMA UGM</h3>
+            </div>
+            <div class="card-header">
+            <td><a type="button" class="btn btn-primary" href="/ruang/tambah">Tambah Ruang</a></td>
             </div>
             <!-- /.card-header -->
             <div style="Overflow:scroll" class="card-body">
@@ -32,8 +55,8 @@
                   <td>{{$data->deskripsi}}</td>
                   <td>{{$data->kuota}}</td>
                   <div class="row">
-                  <td><button type="button" class="btn btn-primary" onClick="handleClickUbah()">Ubah</button></td>
-                  <td><button type="button" class="btn btn-danger" onClick="handleClickHapus()">Hapus</button></td>
+                  <td><a type="button" class="btn btn-primary" href="/ruang/edit/{{ $data->id }}">Ubah</a></td>
+                  <td><a type="button" class="btn btn-danger" href="/ruang/hapus/{{ $data->id }}">Hapus</a></td>
                   </div>
                 </tr>
                 @endforeach

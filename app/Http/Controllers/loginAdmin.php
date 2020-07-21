@@ -3,6 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Auth\SessionGuard;
+use Validator;
+use Auth;
+use App\Admin;
 
 class loginAdmin extends Controller
 {
@@ -14,6 +18,40 @@ class loginAdmin extends Controller
     public function index()
    {
        return view('admin/login');
+   }
+
+   function checklogin(Request $request)
+   {
+        $this->validate($request, [
+            'NAK'       =>  'required|nak',
+            'password'  =>  'required|alphaNum|min:3'
+        ]);
+
+        $admin_data = array(
+            'NAK'       =>  $request->get('nak'),
+            'password'  =>  $request->get('password')
+        );
+
+        if(Auth::attempt($admin_data))
+        {
+            return redirect('/dashboard');
+        }
+        else
+        {
+            return back()->with('error', 'NAK atau Password Salah');
+        }
+        
+   }
+
+//    function berhasillogin()
+//    {
+//        return view('admin/dashboardadmin');
+//    }
+
+   function logout()
+   {
+       Auth::logout();
+       return redirect('login');
    }
 
     /**

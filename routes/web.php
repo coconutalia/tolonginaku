@@ -20,14 +20,33 @@ Route::get('/', function () {
 Route::get('/dashboard', 'dashboardadmin@index');
 
 Route::get('login', 'loginAdmin@index');
+Route::post('/login/checklogin', 'loginAdmin@checklogin');
+Route::get('/dashboard/logout', 'loginAdmin@logout');
 
 Route::get('/p', 'peminjaman@index');
+Route::get('/p/edit/{id}','peminjaman@edit');
+Route::post('/p/update','peminjaman@update');
 
 Route::get('/ruang', 'ruang@index');
+Route::get('/ruang/edit/{id}','ruang@edit');
+Route::post('/ruang/update','ruang@update');
+Route::get('/ruang/hapus/{id}','ruang@hapus');
+Route::get('/ruang/tambah','ruang@tambah');
+Route::post('/ruang/store','ruang@store');
 
 Route::get('/barang', 'barang@index');
+Route::get('/barang/edit/{id}','barang@edit');
+Route::post('/barang/update','barang@update');
+Route::get('/barang/hapus/{id}','barang@hapus');
+Route::get('/barang/tambah','barang@tambah');
+Route::post('/barang/store','barang@store');
 
 Route::get('/user', 'daftarUser@index');
+Route::get('/user/edit/{id}','daftarUser@edit');
+Route::post('/user/update','daftarUser@update');
+Route::get('/user/hapus/{id}','daftarUser@hapus');
+Route::get('/user/tambah','daftarUser@tambah');
+Route::post('/user/store','daftarUser@store');
 
 // USER
 

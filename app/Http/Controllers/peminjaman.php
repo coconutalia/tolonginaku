@@ -18,6 +18,34 @@ class peminjaman extends Controller
        return view('admin.tabel_peminjaman', ['data_peminjaman' => $peminjaman]);
    }
 
+   // method untuk edit data pegawai
+    public function edit($id)
+    {
+        // mengambil data pegawai berdasarkan id yang dipilih
+        $peminjaman = DB::table('peminjaman')->where('id',$id)->get();
+        // passing data pegawai yang didapat ke view edit.blade.php
+        return view('admin.edit_peminjaman',['data_peminjaman' => $peminjaman]);
+    
+    }
+
+    // update data pegawai
+    public function update(Request $request)
+    {
+        // update data pegawai
+        DB::table('peminjaman')->where('id',$request->id)->update([
+            // 'acara' => $request->acara,
+            // 'ruang' => $request->ruang,
+            // 'barang' => $request->barang,
+            // 'jumlah_pinjam' => $request->jumlah_pinjam,
+            // 'tanggal' => $request->tanggal,
+            // 'waktu_mulai' => $request->waktu_mulai,
+            // 'waktu_selesai' => $request->waktu_selesai,
+            'aksi' => $request->aksi
+        ]);
+        // alihkan halaman ke halaman pegawai
+        return redirect('/p');
+    }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -56,10 +84,6 @@ class peminjaman extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
-    {
-        //
-    }
 
     /**
      * Update the specified resource in storage.
@@ -68,10 +92,6 @@ class peminjaman extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
-    {
-        //
-    }
 
     /**
      * Remove the specified resource from storage.
