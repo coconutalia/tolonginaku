@@ -48,8 +48,7 @@
                   <th>Alamat</th>
                   <th>Telepon</th>
                   <th>Email</th>
-                  <th>Ubah</th>
-                  <th>Hapus</th>
+                  <th>Aksi</th>
 
                 </tr>
                 </thead>
@@ -69,8 +68,7 @@
                   <td>{{$data->email}}</td>
                   
                   <div class="row">
-                  <td><a type="button" class="btn btn-primary" href="/user/edit/{{ $data->id }}">Ubah</a></td>
-                  <td><a type="button" class="btn btn-danger" href="/user/hapus/{{ $data->id }}">Hapus</a></td>
+                  <td style="text-align: center; width: 100%;"><a type="button" class="btn btn-primary" href="/user/edit/{{ $data->id }}">Ubah</a>|<a type="button" class="btn btn-danger" href="/user/hapus/{{ $data->id }}">Hapus</a></td>
                   </div>
 
                 </tr>

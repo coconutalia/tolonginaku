@@ -47,8 +47,8 @@
                 </div>
 
                 <div class="form-group">
-                    <label class="control-label col-sm-2" for="deskripsi">Deskripsi:</label>
-                    <input class="col-sm-9" type="text" required="required" name="deskripsi">
+                    <label class="control-label col-sm-2 " for="deskripsi">Deskripsi:</label>
+                    <textarea class="col-sm-9" type="text" required="required" name="deskripsi"></textarea>
                 </div>
 
                 <div class="form-group">

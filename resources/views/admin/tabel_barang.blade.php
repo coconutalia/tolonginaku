@@ -45,8 +45,7 @@
                     <th>Jumlah_pinjam</th>
                     <th>Jumlah_request</th>
                     <th>Jenis</th>
-                    <th>Ubah</th>
-                    <th>Hapus</th>
+                    <th>Aksi</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -60,8 +59,7 @@
                     <td>{{$data->jumlah_request}}</td>
                     <td>{{$data->jenis}}</td>
                     <div class="row">
-                    <td><a type="button" class="btn btn-primary" href="/barang/edit/{{ $data->id }}">Ubah</a></td>
-                    <td><a type="button" class="btn btn-danger" href="/barang/hapus/{{ $data->id }}">Hapus</a></td>
+                    <td><a type="button" class="btn btn-primary" href="/barang/edit/{{ $data->id }}">Ubah</a> <a type="button" class="btn btn-danger" href="/barang/hapus/{{ $data->id }}">Hapus</a></td>
                     </div>
                   </tr>
                   @endforeach

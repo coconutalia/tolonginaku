@@ -42,8 +42,7 @@
                   <th>Alamat_ruang</th>
                   <th>Deskripsi</th>
                   <th>Kuota</th>
-                  <th>Ubah</th>
-                  <th>Hapus</th>
+                  <th>Aksi</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -55,8 +54,7 @@
                   <td>{{$data->deskripsi}}</td>
                   <td>{{$data->kuota}}</td>
                   <div class="row">
-                  <td><a type="button" class="btn btn-primary" href="/ruang/edit/{{ $data->id }}">Ubah</a></td>
-                  <td><a type="button" class="btn btn-danger" href="/ruang/hapus/{{ $data->id }}">Hapus</a></td>
+                  <td><a type="button" class="btn btn-primary" href="/ruang/edit/{{ $data->id }}">Ubah</a> <a type="button" class="btn btn-danger" href="/ruang/hapus/{{ $data->id }}">Hapus</a></td>
                   </div>
                 </tr>
                 @endforeach

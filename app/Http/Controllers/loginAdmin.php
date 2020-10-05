@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Auth\SessionGuard;
+use Illuminate\Support\Facades\DB;
 use Validator;
 use Auth;
 use App\Admin;
@@ -16,14 +17,15 @@ class loginAdmin extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-   {
-       return view('admin/login');
+   { 
+        $admin = DB::table('admin')->get();
+        return view('admin.login', ['admin_data' => $admin]);
    }
-
+   
    function checklogin(Request $request)
    {
+        
         $this->validate($request, [
-            'NAK'       =>  'required|nak',
             'password'  =>  'required|alphaNum|min:3'
         ]);
 
@@ -32,6 +34,7 @@ class loginAdmin extends Controller
             'password'  =>  $request->get('password')
         );
 
+        
         if(Auth::attempt($admin_data))
         {
             return redirect('/dashboard');

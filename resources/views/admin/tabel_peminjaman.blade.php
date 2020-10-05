@@ -58,9 +58,15 @@
                   <td>{{$data->barang}}</td>
                   <td>{{$data->jumlah_pinjam}}</td>
                   <td>{{$data->tanggal}}</td>
-                  <td>{{$data->waktu_mulai}}</td>
-                  <td>{{$data->waktu_selesai}}</td>
+                  <td>{{$data->Waktu_mulai}}</td>
+                  <td>{{$data->Waktu_selesai}}</td>
+                  @if($data->aksi=="Terima")
                   <td>{{$data->aksi}}</td>
+                  @elseif($data->aksi=="Tolak")
+                  <td>{{$data->aksi}}</td>
+                  @elseif($data->aksi=="Kembali")
+                  <td>{{$data->aksi}}</a></td>
+                  @endif
                   <div class="row">
                   <td><a type="button" class="btn btn-primary" href="/p/edit/{{ $data->id }}">Ubah</a></td>
                   </div>

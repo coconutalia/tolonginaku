@@ -21,7 +21,7 @@ Route::get('/dashboard', 'dashboardadmin@index');
 
 Route::get('login', 'loginAdmin@index');
 Route::post('/login/checklogin', 'loginAdmin@checklogin');
-Route::get('/dashboard/logout', 'loginAdmin@logout');
+Route::get('logout', 'loginAdmin@logout');
 
 Route::get('/p', 'peminjaman@index');
 Route::get('/p/edit/{id}','peminjaman@edit');

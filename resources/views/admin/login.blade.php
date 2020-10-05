@@ -28,9 +28,7 @@
     <div class="card-body login-card-body">
       <p class="login-box-msg">Sign in untuk memulai sesi Anda</p>
 
-      @if(isset(Auth::admin()->nak))
-        <script>window.location="/dashboard";</script>
-      @endif
+      
 
       @if ($message = Session::get('error'))
       <div class="alert alert-danger alert-block">
@@ -52,17 +50,17 @@
       <form method="POST" action="{{ url('/login/checklogin')}}">
       {{ csrf_field() }}
         <div class="input-group mb-3">
-          <input type="number" class="form-control" placeholder="NAK">
+          <input name="nak" type="number" class="form-control" placeholder="NAK">
           <div class="input-group-append">
-            <div class="input-group-text" name="nak">
+            <div class="input-group-text">
               <span class="fas fa-envelope"></span>
             </div>
           </div>
         </div>
         <div class="input-group mb-3">
-          <input type="password" class="form-control" placeholder="Password">
+          <input name="password" type="password" class="form-control" placeholder="Password">
           <div class="input-group-append">
-            <div class="input-group-text" name="password">
+            <div class="input-group-text">
               <span class="fas fa-lock"></span>
             </div>
           </div>

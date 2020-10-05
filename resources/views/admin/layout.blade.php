@@ -53,6 +53,34 @@
 
     <!-- Right navbar links -->
     <ul class="navbar-nav ml-auto">
+    <!-- User Account: style can be found in dropdown.less -->
+    <li class="dropdown user user-menu">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+              
+              <span class="hidden-xs">{{Auth::user()->name}}</span>
+            </a>
+            <ul class="dropdown-menu width=10">
+              <!-- User image -->
+              <!-- <li class="user-header"> -->
+                
+
+                <!-- <p>
+                {{Auth::user()->name}}
+                </p> -->
+              <!-- </li> -->
+              
+              <!-- Menu Footer-->
+              <!-- <li class="user-footer"> -->
+                <!-- <div class="pull-left">
+                  <a href="#" class="btn btn-default btn-flat">Profile</a>
+                </div> -->
+                <!-- <div class="pull-right"> -->
+                  <a href="{{url('logout')}}" class="btn btn-default btn-flat">Sign out</a>
+                <!-- </div> -->
+              <!-- </li> -->
+            </ul>
+      </li>
+      
       <!-- Notifications Dropdown Menu -->
       <li class="nav-item dropdown">
         <a class="nav-link" data-toggle="dropdown" href="#">
@@ -105,7 +133,7 @@
           <img src="{{ asset('image/Logo-Kopma.png')}}" class="img-circle elevation-2" alt="User Image">
         </div> -->
         <div class="info">
-          <a class="d-block">Admin Nana</a>
+          <a class="d-block">Admin Kopma UGM</a>
         </div>
       </div>
 
