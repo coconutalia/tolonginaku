@@ -31,27 +31,27 @@
 	<form action="/ruang/store" method="post">
 		{{ csrf_field() }}
         <br/>
-                <div class="form-group">
+                <div class="form-group d-flex align-items-center">
                     <label class="control-label col-sm-2" for="id">ID:</label>
                     <input class="col-sm-9" type="text" required="required" name="id">
                 </div>
 
-                <div class="form-group">
+                <div class="form-group d-flex align-items-center">
                     <label class="control-label col-sm-2" for="nama_ruang">Nama Ruang:</label>
                     <input class="col-sm-9" type="text" required="required" name="nama_ruang">
                 </div>
         
-                <div class="form-group">
+                <div class="form-group d-flex align-items-center">
                     <label class="control-label col-sm-2" for="alamat_ruang">Alamat Ruang:</label>
                     <input class="col-sm-9" type="text" required="required" name="alamat_ruang">
                 </div>
 
-                <div class="form-group">
-                    <label class="control-label col-sm-2 " for="deskripsi">Deskripsi:</label>
+                <div class="form-group d-flex align-items-center">
+                    <label class="control-label col-sm-2"  for="deskripsi">Deskripsi:</label>
                     <textarea class="col-sm-9" type="text" required="required" name="deskripsi"></textarea>
                 </div>
 
-                <div class="form-group">
+                <div class="form-group d-flex align-items-center">
                     <label class="control-label col-sm-2" for="kuota">Kuota:</label>
                     <input class="col-sm-9" type="text" required="required" name="kuota">
                 </div>

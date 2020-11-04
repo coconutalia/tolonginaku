@@ -46,7 +46,7 @@ class ruang extends Controller
     {
         // menghapus data pegawai berdasarkan id yang dipilih
         DB::table('ruang')->where('id',$id)->delete();
-            
+        // \Session::flash('notifikasi', 'berhasil dihapus.');
         // alihkan halaman ke halaman pegawai
         return redirect('/ruang');
     }

@@ -42,7 +42,7 @@
                   <th>Alamat_ruang</th>
                   <th>Deskripsi</th>
                   <th>Kuota</th>
-                  <th>Aksi</th>
+                  <th style="text-align: center; width:17%;">Aksi</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -53,9 +53,11 @@
                   <td>{{$data->alamat_ruang}}</td>
                   <td>{{$data->deskripsi}}</td>
                   <td>{{$data->kuota}}</td>
-                  <div class="row">
-                  <td><a type="button" class="btn btn-primary" href="/ruang/edit/{{ $data->id }}">Ubah</a> <a type="button" class="btn btn-danger" href="/ruang/hapus/{{ $data->id }}">Hapus</a></td>
-                  </div>
+                  <td style="width:20px;">
+                  <a type="button" class="btn btn-primary inline" href="/ruang/edit/{{ $data->id }}">Ubah</a> 
+                  <a type="button" class="btn btn-danger inline" href="/ruang/hapus/{{ $data->id }}" onclick="return confirm('Anda yakin akan menghapus item ini ?')">Hapus</a>
+                  </td>
+                  
                 </tr>
                 @endforeach
                 

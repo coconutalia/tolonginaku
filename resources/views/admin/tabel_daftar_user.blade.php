@@ -39,7 +39,7 @@
                 <tr>
                   <th>ID</th>
                   <th>KTM</th>
-                  <th>Nama Lengkap</th>
+                  <th style="text-align: center; width:20%;">Nama Lengkap</th>
                   <th>Fakultas</th>
                   <th>Prodi</th>
                   <th>Kode</th>
@@ -48,7 +48,7 @@
                   <th>Alamat</th>
                   <th>Telepon</th>
                   <th>Email</th>
-                  <th>Aksi</th>
+                  <th style="text-align: center; width:17%;">Aksi</th>
 
                 </tr>
                 </thead>
@@ -66,12 +66,10 @@
                   <td>{{$data->alamat}}</td>
                   <td>{{$data->telepon}}</td>
                   <td>{{$data->email}}</td>
-                  
-                  <div class="row">
-                  <td style="text-align: center; width: 100%;"><a type="button" class="btn btn-primary" href="/user/edit/{{ $data->id }}">Ubah</a>|<a type="button" class="btn btn-danger" href="/user/hapus/{{ $data->id }}">Hapus</a></td>
-                  </div>
-
-                </tr>
+                  <td style="text-align: center; width: 20px;" class="inline">
+                  <a type="button" class="btn btn-primary" href="/user/edit/{{ $data->id }}">Ubah</a> 
+                  <a type="button" class="btn btn-danger" href="/user/hapus/{{ $data->id }}" onclick="return confirm('Anda yakin akan menghapus item ini ?')">Hapus</a></td>
+                   </tr>
                 @endforeach
                 
                 </tfoot>

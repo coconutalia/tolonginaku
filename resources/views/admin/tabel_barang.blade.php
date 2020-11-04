@@ -45,7 +45,7 @@
                     <th>Jumlah_pinjam</th>
                     <th>Jumlah_request</th>
                     <th>Jenis</th>
-                    <th>Aksi</th>
+                    <th style="text-align: center; width:17%;">Aksi</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -58,9 +58,10 @@
                     <td>{{$data->jumlah_pinjam}}</td>
                     <td>{{$data->jumlah_request}}</td>
                     <td>{{$data->jenis}}</td>
-                    <div class="row">
-                    <td><a type="button" class="btn btn-primary" href="/barang/edit/{{ $data->id }}">Ubah</a> <a type="button" class="btn btn-danger" href="/barang/hapus/{{ $data->id }}">Hapus</a></td>
-                    </div>
+                    <td style="text-align: center; width:20px;">
+                    <a type="button" class="btn btn-primary inline" href="/barang/edit/{{ $data->id }}">Ubah</a> 
+                    <a type="button" class="btn btn-danger inline" href="/barang/hapus/{{ $data->id }}" onclick="return confirm('Anda yakin akan menghapus item ini ?')">Hapus</a>
+                    </td>
                   </tr>
                   @endforeach
                 </tbody>

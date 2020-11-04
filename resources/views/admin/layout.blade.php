@@ -24,6 +24,12 @@
   <link rel="stylesheet" type="text/css" href="{{ asset('assets/plugins/daterangepicker/daterangepicker.css')}}">
   <!-- summernote -->
   <link rel="stylesheet" type="text/css" href="{{ asset('assets/plugins/summernote/summernote-bs4.css')}}">
+  <!-- datatable -->
+  <link rel="stylesheet" type="text/css" href="assets/plugins/datatables-bs4/css/dataTables.bootstrap4.css">
+  <link rel="stylesheet" type="text/css" href="assets/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
+  <link rel="stylesheet" type="text/css" href="assets/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
+  
+  
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 </head>
@@ -40,7 +46,7 @@
     </ul>
 
     <!-- SEARCH FORM -->
-    <form class="form-inline ml-3">
+    <!-- <form class="form-inline ml-3">
       <div class="input-group input-group-sm">
         <input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search">
         <div class="input-group-append">
@@ -49,17 +55,16 @@
           </button>
         </div>
       </div>
-    </form>
+    </form> -->
 
     <!-- Right navbar links -->
-    <ul class="navbar-nav ml-auto">
+    <ul class="navbar-nav ml-auto" style="margin-right: 15px;">
     <!-- User Account: style can be found in dropdown.less -->
     <li class="dropdown user user-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              
-              <span class="hidden-xs">{{Auth::user()->name}}</span>
+            <span class="hidden-xs">{{Auth::user()->name}}</span>
             </a>
-            <ul class="dropdown-menu width=10">
+            <ul class="dropdown-menu" style="text-align: center; width:10px;">
               <!-- User image -->
               <!-- <li class="user-header"> -->
                 
@@ -74,15 +79,23 @@
                 <!-- <div class="pull-left">
                   <a href="#" class="btn btn-default btn-flat">Profile</a>
                 </div> -->
-                <!-- <div class="pull-right"> -->
+
+                <!-- <div class="pull-right">
                   <a href="{{url('logout')}}" class="btn btn-default btn-flat">Sign out</a>
-                <!-- </div> -->
+                </div> -->
               <!-- </li> -->
+              <!-- Dropdown - User Information -->
+             <div class="pull-right">
+               <a class="dropdown-item" href="{{url('logout')}}" class="btn btn-default btn-flat">
+                 <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                 Logout
+               </a>
+             </div>
             </ul>
       </li>
       
       <!-- Notifications Dropdown Menu -->
-      <li class="nav-item dropdown">
+      <!-- <li class="nav-item dropdown">
         <a class="nav-link" data-toggle="dropdown" href="#">
           <i class="far fa-bell"></i>
           <span class="badge badge-warning navbar-badge">15</span>
@@ -107,12 +120,13 @@
           <div class="dropdown-divider"></div>
           <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
         </div>
-      </li>
-      <li class="nav-item">
+      </li> -->
+      <!-- data widget -->
+      <!-- <li class="nav-item">
         <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#" role="button">
           <i class="fas fa-th-large"></i>
         </a>
-      </li>
+      </li> -->
     </ul>
   </nav>
   <!-- /.navbar -->
@@ -259,5 +273,24 @@
 <script src="{{ asset('assets/dist/js/pages/dashboard.js')}}"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="{{ asset('assets/dist/js/demo.js')}}"></script>
+
+<!-- baru -->
+<!-- DataTables -->
+<script src="{{ asset('assets/plugins/datatables/jquery.dataTables.js')}}"></script>
+<script src="{{ asset('assets/plugins/datatables-bs4/js/dataTables.bootstrap4.js')}}"></script>
+<!-- page script -->
+<script>
+  $(function () {
+    $("#example1").DataTable();
+    $('#example2').DataTable({
+      "paging": true,
+      "lengthChange": true,
+      "searching": true,
+      "ordering": true,
+      "info": true,
+      "autoWidth": false,
+    });
+  });
+</script>
 </body>
 </html>
