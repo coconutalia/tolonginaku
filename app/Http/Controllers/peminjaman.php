@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Auth;
 
 class peminjaman extends Controller
 {
@@ -14,6 +15,9 @@ class peminjaman extends Controller
      */
     public function index()
    {
+        if(!Auth::user()){
+            return redirect('/login');
+        }
        $peminjaman = DB::table('peminjaman')->get();
        return view('admin.tabel_peminjaman', ['data_peminjaman' => $peminjaman]);
    }

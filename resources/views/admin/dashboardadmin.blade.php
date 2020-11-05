@@ -174,27 +174,28 @@
         </div>
       </section>
         <!-- Map card -->
-        <div class="card bg-gradient-primary">
+        <div class="card bg-gradient-primary" style="display:none">
         
           <div class="card-header border-0">
-            <h3 class="card-title">
+            <!-- <h3 class="card-title">
               <i class="fas fa-map-marker-alt mr-1"></i>
               Visitors
-            </h3>
+            </h3> -->
             
-            <div class="card-tools">
+            <!-- <div class="card-tools">
               <button type="button" class="btn btn-primary btn-sm daterange" data-toggle="tooltip" title="Date range">
                 <i class="far fa-calendar-alt"></i>
               </button>
               <button type="button" class="btn btn-primary btn-sm" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">
                 <i class="fas fa-minus"></i>
               </button>
-            </div>
+            </div> -->
             
           </div>
-          <div class="card-body">
+
+          <!-- <div class="card-body">
             <div id="world-map" style="height: 250px; width: 100%;"></div>
-          </div>
+          </div> -->
           
           <div class="card-footer bg-transparent">
             <div class="row">

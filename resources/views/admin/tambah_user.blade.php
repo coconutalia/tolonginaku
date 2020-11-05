@@ -26,7 +26,11 @@
         <div class="col-12">
           <div class="card">
 
-
+          @foreach ($errors->all() as $message)
+          <div class="alert alert-danger">
+                {{$message}}
+          </div>
+          @endforeach
     <div class="container">
 	<form action="/user/store" method="post">
 		{{ csrf_field() }}
@@ -92,7 +96,7 @@
 
                 <div class="form-group">
                     <label class="control-label col-sm-2" for="password">Ulangi Password:</label>
-                    <input class="col-sm-9" type="password" required="required" name="password">
+                    <input class="col-sm-9" type="password" required="required" name="ulangipassword">
                 </div>
         
                 <div class="form-group">        

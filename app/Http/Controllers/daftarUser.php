@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Validator;
+use Auth;
 
 class daftarUser extends Controller
 {
@@ -14,6 +16,9 @@ class daftarUser extends Controller
      */
     public function index()
    {
+        if(!Auth::user()){
+            return redirect('/login');
+        }
         $users = DB::table('users')->get();
         return view('admin.tabel_daftar_user', ['data_user' => $users]);
    }
@@ -64,9 +69,29 @@ class daftarUser extends Controller
         return view('admin.tambah_user');
     
     }
+
     // method untuk insert data ke table pegawai
     public function store(Request $request)
     {
+        $rules = array(
+        'password' => 'required',
+        'ulangipassword' => 'required|same:password'           
+        // required and has to match the password field
+        );
+        $messages = [
+            'same' => 'Password tidak sesuai',
+        ];
+        $validator = Validator::make($request->all(), $rules, $messages);
+             if ($validator->fails()) {
+            // dd("error");
+                    // get the error messages from the validator
+                    $messages = $validator->messages();
+            
+                    // redirect our user back to the form with the errors from the validator
+                    return redirect('/user/tambah')
+                        ->withErrors($validator);
+            
+            }
         // insert data ke table pegawai
         DB::table('users')->insert([
             'id' => $request->id,

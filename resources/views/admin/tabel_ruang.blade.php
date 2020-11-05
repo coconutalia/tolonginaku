@@ -53,14 +53,18 @@
                   <td>{{$data->alamat_ruang}}</td>
                   <td>{{$data->deskripsi}}</td>
                   <td>{{$data->kuota}}</td>
-                  <td style="width:20px;">
+                  <td class="text-truncate" style="width:20px;">
                   <a type="button" class="btn btn-primary inline" href="/ruang/edit/{{ $data->id }}">Ubah</a> 
                   <a type="button" class="btn btn-danger inline" href="/ruang/hapus/{{ $data->id }}" onclick="return confirm('Anda yakin akan menghapus item ini ?')">Hapus</a>
                   </td>
                   
                 </tr>
                 @endforeach
-                
+                @if (session('status'))
+                <div class="alert alert-success">
+                    {{ session('status') }}
+                </div>
+                @endif
                 </tfoot>
               </table>
             </div>

@@ -66,7 +66,7 @@
                   <td>{{$data->alamat}}</td>
                   <td>{{$data->telepon}}</td>
                   <td>{{$data->email}}</td>
-                  <td style="text-align: center; width: 20px;" class="inline">
+                  <td class="text-truncate" style="text-align: center; width: 20px;" class="inline">
                   <a type="button" class="btn btn-primary" href="/user/edit/{{ $data->id }}">Ubah</a> 
                   <a type="button" class="btn btn-danger" href="/user/hapus/{{ $data->id }}" onclick="return confirm('Anda yakin akan menghapus item ini ?')">Hapus</a></td>
                    </tr>

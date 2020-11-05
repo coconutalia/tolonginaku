@@ -58,7 +58,7 @@
                     <td>{{$data->jumlah_pinjam}}</td>
                     <td>{{$data->jumlah_request}}</td>
                     <td>{{$data->jenis}}</td>
-                    <td style="text-align: center; width:20px;">
+                    <td class="text-truncate" style="text-align: center; width:20px;">
                     <a type="button" class="btn btn-primary inline" href="/barang/edit/{{ $data->id }}">Ubah</a> 
                     <a type="button" class="btn btn-danger inline" href="/barang/hapus/{{ $data->id }}" onclick="return confirm('Anda yakin akan menghapus item ini ?')">Hapus</a>
                     </td>

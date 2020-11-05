@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Auth;
 
 class ruang extends Controller
 {
@@ -14,6 +15,9 @@ class ruang extends Controller
      */
     public function index()
    {
+        if(!Auth::user()){
+            return redirect('/login');
+        }
         $ruang = DB::table('ruang')->get();
         return view('admin.tabel_ruang', ['data_ruang' => $ruang]);
    }
@@ -39,7 +43,7 @@ class ruang extends Controller
             'kuota' => $request->kuota
         ]);
         // alihkan halaman ke halaman pegawai
-        return redirect('/ruang');
+        return redirect('/ruang')->with('status', 'Berhasil disimpan!');
     }
 
     public function hapus($id)
@@ -48,7 +52,7 @@ class ruang extends Controller
         DB::table('ruang')->where('id',$id)->delete();
         // \Session::flash('notifikasi', 'berhasil dihapus.');
         // alihkan halaman ke halaman pegawai
-        return redirect('/ruang');
+        return redirect('/ruang')->with('status', 'Berhasil dihapus!');
     }
 
     // method untuk menampilkan view form tambah pegawai
@@ -56,7 +60,7 @@ class ruang extends Controller
     {
     
         // memanggil view tambah
-        return view('admin.tambah_ruang');
+        return view('admin.tambah_ruang')->with('status', 'Berhasil ditambahkan!');
     
     }
     // method untuk insert data ke table pegawai

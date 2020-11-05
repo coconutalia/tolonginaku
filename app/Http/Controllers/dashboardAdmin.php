@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Auth;
 
 class dashboardAdmin extends Controller
 {
@@ -13,6 +14,9 @@ class dashboardAdmin extends Controller
      */
     public function index()
    {
+       if(!Auth::user()){
+           return redirect('/login');
+       }
        return view('admin.dashboardadmin');
    }
 

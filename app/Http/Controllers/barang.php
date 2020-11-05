@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Auth;
 
 class barang extends Controller
 {
@@ -14,6 +15,9 @@ class barang extends Controller
      */
     public function index()
    {
+        if(!Auth::user()){
+            return redirect('/login');
+        }
         $barang = DB::table('barang')->get();
         return view('admin.tabel_barang', ['data_barang' => $barang]);
    }
