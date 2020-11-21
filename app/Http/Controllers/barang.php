@@ -23,18 +23,18 @@ class barang extends Controller
    }
    public function edit($id)
     {
-        // mengambil data pegawai berdasarkan id yang dipilih
+        // mengambil data barang berdasarkan id yang dipilih
         $barang = DB::table('barang')->where('id',$id)->get();
-        // passing data pegawai yang didapat ke view edit.blade.php
+        // passing data barang yang didapat ke view eadmin.edit_barang
         return view('admin.edit_barang',['data_barang' => $barang]);
     
     }
 
-    // update data pegawai
+    // update data barang
     public function update(Request $request)
     {
 
-        // update data pegawai
+        // update data barang
         DB::table('barang')->where('id',$request->id)->update([
             'nama_barang' => $request->nama_barang,
             'total_barang' => $request->total_barang,
@@ -43,17 +43,17 @@ class barang extends Controller
             'jumlah_request' => $request->jumlah_request,
             'jenis' => $request->jenis
         ]);
-        // alihkan halaman ke halaman pegawai
-    return redirect('/barang');
+        // alihkan halaman ke halaman tabel barang
+    return redirect('/barang')->with('status', 'Berhasil disimpan!');
     }
 
     public function hapus($id)
     {
-            // menghapus data pegawai berdasarkan id yang dipilih
+            // menghapus data barang berdasarkan id yang dipilih
             DB::table('barang')->where('id',$id)->delete();
                 
-            // alihkan halaman ke halaman pegawai
-            return redirect('/barang');
+            // alihkan halaman ke halaman tabel barang
+            return redirect('/barang')->with('status', 'Berhasil dihapus!');
     }
 
     public function tambah()
@@ -63,10 +63,10 @@ class barang extends Controller
         return view('admin.tambah_barang');
     
     }
-    // method untuk insert data ke table pegawai
+    // method untuk insert data ke table barang
     public function store(Request $request)
     {
-        // insert data ke table pegawai
+        // insert data ke table barang
         DB::table('barang')->insert([
             'id' => $request->id,
             'nama_barang' => $request->nama_barang,
@@ -76,8 +76,8 @@ class barang extends Controller
             'jumlah_request' => $request->jumlah_request,
             'jenis' => $request->jenis
         ]);
-        // alihkan halaman ke halaman pegawai
-        return redirect('/barang');
+        // alihkan halaman ke halaman tabel barang
+        return redirect('/barang')->with('status', 'Berhasil ditambahkan!');
     
     }
 

@@ -31,62 +31,63 @@
                 {{$message}}
           </div>
           @endforeach
+          
     <div class="container">
-	<form action="/user/store" method="post">
+	<form action="/user/store" method="post" enctype="multipart/form-data">
 		{{ csrf_field() }}
         <br/>
-            <div class="form-group">
+                <!-- <div class="form-group">
                     <label class="control-label col-sm-2" for="id">ID:</label>
                     <input class="col-sm-9" type="text" required="required" name="id">
-                </div>
+                </div> -->
                 <div class="form-group">
                     <label class="control-label col-sm-2" for="ktm">KTM:</label>
-                    <input class="col-sm-9" type="text" required="required" name="ktm">
+                    <input class="col-sm-9" type="file" required="required" name="ktm">
                 </div>
 
                 <div class="form-group">
                     <label class="control-label col-sm-2" for="name">Nama:</label>
-                    <input class="col-sm-9" type="text" required="required" name="name">
+                    <input class="col-sm-9" type="text" required="required" name="name" value="{{old('name')}}">
                 </div>
 
                 <div class="form-group">
                     <label class="control-label col-sm-2" for="fakultas">Fakultas:</label>
-                    <input class="col-sm-9" type="text" required="required" name="fakultas">
+                    <input class="col-sm-9" type="text" required="required" name="fakultas" value="{{old('fakultas')}}">
                 </div>
 
                 <div class="form-group">
                     <label class="control-label col-sm-2" for="prodi">Prodi:</label>
-                    <input class="col-sm-9" type="text" required="required" name="prodi">
+                    <input class="col-sm-9" type="text" required="required" name="prodi" value="{{old('prodi')}}">
                 </div>
 
                 <div class="form-group">
                     <label class="control-label col-sm-2" for="kode">Kode:</label>
-                    <input class="col-sm-9" type="text" required="required" name="kode">
+                    <input class="col-sm-9" type="text" required="required" name="kode" value="{{old('kode')}}">
                 </div>
 
                 <div class="form-group">
                     <label class="control-label col-sm-2" for="status">Status:</label>
-                    <input class="col-sm-9" type="text" name="status">
+                    <input class="col-sm-9" type="text" name="status" value="{{old('status')}}">
                 </div>
 
                 <div class="form-group">
                     <label class="control-label col-sm-2" for="jabatan">Jabatan:</label>
-                    <input class="col-sm-9" type="text" name="jabatan">
+                    <input class="col-sm-9" type="text" name="jabatan" value="{{old('jabatan')}}">
                 </div>
 
                 <div class="form-group">
                     <label class="control-label col-sm-2" for="alamat">Alamat:</label>
-                    <input class="col-sm-9" type="text" required="required" name="alamat">
+                    <input class="col-sm-9" type="text" required="required" name="alamat" value="{{old('alamat')}}">
                 </div>
 
                 <div class="form-group">
                     <label class="control-label col-sm-2" for="telepon">Telepon:</label>
-                    <input class="col-sm-9" type="text" required="required" name="telepon">
+                    <input class="col-sm-9" type="text" required="required" name="telepon" value="{{old('telepon')}}">
                 </div>
 
                 <div class="form-group">
                     <label class="control-label col-sm-2" for="email">Email:</label>
-                    <input class="col-sm-9" type="text" required="required" name="email">
+                    <input class="col-sm-9" type="text" required="required" name="email" value="{{old('email')}}">
                 </div>
 
                 <div class="form-group">

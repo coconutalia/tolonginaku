@@ -141,7 +141,7 @@
 
             <h3 class="card-title">
               <i class="far fa-calendar-alt"></i>
-              Calendar
+              Kalender
             </h3>
             <!-- tools card -->
             <div class="card-tools">

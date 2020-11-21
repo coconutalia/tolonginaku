@@ -39,11 +39,11 @@
                 <thead>
                   <tr>
                     <th>ID</th>
-                    <th>Nama_barang</th>
-                    <th>Jumlah_barang</th>
-                    <th>Barang_tersedia</th>
-                    <th>Jumlah_pinjam</th>
-                    <th>Jumlah_request</th>
+                    <th>Nama Barang</th>
+                    <th>Jumlah Barang</th>
+                    <th>Barang Tersedia</th>
+                    <th>Jumlah Pinjam</th>
+                    <th>Jumlah Request</th>
                     <th>Jenis</th>
                     <th style="text-align: center; width:17%;">Aksi</th>
                   </tr>
@@ -64,6 +64,14 @@
                     </td>
                   </tr>
                   @endforeach
+                  @if (session('status'))
+                  <div class="alert alert-success">
+                      {{ session('status') }}
+                      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                      </button>
+                  </div>
+                  @endif
                 </tbody>
               </table>
             </div>

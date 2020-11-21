@@ -56,7 +56,7 @@
                 @foreach($data_user as $data)
                 <tr>
                   <td>{{$data->id}}</td>
-                  <td>{{$data->ktm}}</td>
+                  <td><img width="100" src="{{url('/image/'.$data->ktm)}}" alt="">{{$data->ktm}}</td>
                   <td>{{$data->name}}</td>
                   <td>{{$data->fakultas}}</td>
                   <td>{{$data->prodi}}</td>
@@ -71,7 +71,14 @@
                   <a type="button" class="btn btn-danger" href="/user/hapus/{{ $data->id }}" onclick="return confirm('Anda yakin akan menghapus item ini ?')">Hapus</a></td>
                    </tr>
                 @endforeach
-                
+                @if (session('status'))
+                <div class="alert alert-success">
+                    {{ session('status') }}
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                @endif
                 </tfoot>
               </table>
             </div>

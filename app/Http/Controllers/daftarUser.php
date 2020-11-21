@@ -25,20 +25,16 @@ class daftarUser extends Controller
 
    public function edit($id)
     {
-        // mengambil data pegawai berdasarkan id yang dipilih
+        // mengambil data user berdasarkan id yang dipilih
         $users = DB::table('users')->where('id',$id)->get();
-        // passing data pegawai yang didapat ke view edit.blade.php
+        // passing data user yang didapat ke view edit.blade.php
         return view('admin.edit_user',['data_user' => $users]);
     
     }
-
-    // update data pegawai
     public function update(Request $request)
     {
-
-        // update data pegawai
+        // update data user
         DB::table('users')->where('id',$request->id)->update([
-            'foto' => $request->foto,
             'name' => $request->name,
             'fakultas' => $request->fakultas,
             'prodi' => $request->prodi,
@@ -49,17 +45,17 @@ class daftarUser extends Controller
             'telepon' => $request->telepon,
             'email' => $request->email
         ]);
-        // alihkan halaman ke halaman pegawai
-        return redirect('/user');
+        // alihkan halaman ke halaman tabel daftar user
+        return redirect('/user')->with('status', 'Berhasil disimpan!');
     }
 
     public function hapus($id)
     {
-            // menghapus data pegawai berdasarkan id yang dipilih
+            // menghapus data user berdasarkan id yang dipilih
             DB::table('users')->where('id',$id)->delete();
                 
-            // alihkan halaman ke halaman pegawai
-            return redirect('/user');
+            // alihkan halaman ke halaman tabel daftar user
+            return redirect('/user')->with('status', 'Berhasil dihapus!');
     }
 
     public function tambah()
@@ -70,12 +66,14 @@ class daftarUser extends Controller
     
     }
 
-    // method untuk insert data ke table pegawai
+    // method untuk insert data ke table daftar user
     public function store(Request $request)
-    {
+    {   
         $rules = array(
+        'email'=>'required|max:100|email',
         'password' => 'required',
-        'ulangipassword' => 'required|same:password'           
+        'ulangipassword' => 'required|same:password',
+        'ktm' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',            
         // required and has to match the password field
         );
         $messages = [
@@ -89,13 +87,18 @@ class daftarUser extends Controller
             
                     // redirect our user back to the form with the errors from the validator
                     return redirect('/user/tambah')
-                        ->withErrors($validator);
+                        ->withErrors($validator)
+                        ->withInput();
             
             }
-        // insert data ke table pegawai
+        
+        $imageName = time().'.'.request()->ktm->getClientOriginalExtension();
+        request()->ktm->move(public_path('image'), $imageName);
+
+        // insert data ke table daftar user
         DB::table('users')->insert([
             'id' => $request->id,
-            'ktm' => $request->ktm,
+            'ktm' => $imageName,
             'name' => $request->name,
             'fakultas' => $request->fakultas,
             'prodi' => $request->prodi,
@@ -107,8 +110,8 @@ class daftarUser extends Controller
             'email' => $request->email,
             'password' => $request->password
         ]);
-        // alihkan halaman ke halaman pegawai
-        return redirect('/user');
+        // alihkan halaman ke halaman tabel daftar user
+        return redirect('/user')->with('status', 'Berhasil ditambahkan!');
     
     }
 

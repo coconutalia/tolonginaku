@@ -31,10 +31,10 @@
 	<form action="/barang/store" method="post">
 		{{ csrf_field() }}
         <br/>
-                <div class="form-group">
+                <!-- <div class="form-group">
                     <label class="control-label col-sm-2" for="id">ID:</label>
-                    <input class="col-sm-9" type="text" required="required" name="id">
-                </div>
+                    <input class="col-sm-9" type="text" name="id">
+                </div> -->
 
                 <div class="form-group">
                     <label class="control-label col-sm-2" for="nama_barang">Nama Barang:</label>
@@ -71,6 +71,8 @@
                     <button type="submit" class="btn btn-default">Simpan Perubahan</button>
                 </div>
                 </div>
+
+                
 	</form>
     </div>
             <!-- /.card-body -->

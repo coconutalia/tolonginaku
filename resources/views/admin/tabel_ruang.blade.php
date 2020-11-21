@@ -38,8 +38,8 @@
                 <thead>
                 <tr>
                   <th>ID</th>
-                  <th>Nama_ruang</th>
-                  <th>Alamat_ruang</th>
+                  <th>Nama Ruang</th>
+                  <th>Alamat Ruang</th>
                   <th>Deskripsi</th>
                   <th>Kuota</th>
                   <th style="text-align: center; width:17%;">Aksi</th>
@@ -63,6 +63,9 @@
                 @if (session('status'))
                 <div class="alert alert-success">
                     {{ session('status') }}
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
                 </div>
                 @endif
                 </tfoot>

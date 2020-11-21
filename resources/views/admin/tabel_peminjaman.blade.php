@@ -31,6 +31,16 @@
           <div class="card">
             <div class="card-header">
               <h3 class="card-title">Tabel daftar peminjaman ruangan dan barang KOPMA UGM</h3>
+              <div class="dropdown">
+              <br>
+                <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Unduh
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                  <a class="dropdown-item" href="{{url('/export-pdf-bulan')}}">Bulan Ini</a>
+                  <a class="dropdown-item" href="{{url('/export-pdf-tahun')}}">Tahun Ini</a>
+                </div>
+              </div>
             </div>
             <!-- /.card-header -->
             <div style="Overflow:scroll" class="card-body">
@@ -41,10 +51,10 @@
                   <th>Acara</th>
                   <th>Ruang</th>
                   <th>Barang</th>
-                  <th>Jumlah_pinjam</th>
+                  <th>Jumlah Pinjam</th>
                   <th>Tanggal</th>
-                  <th>Waktu_mulai</th>
-                  <th>Waktu_selesai</th>
+                  <th>Waktu Mulai</th>
+                  <th>Waktu Selesai</th>
                   <th>Aksi</th>
                   <th>Ubah</th>
                 </tr>
@@ -72,6 +82,14 @@
                   </div>
                 </tr>
                 @endforeach
+                @if (session('status'))
+                <div class="alert alert-success">
+                    {{ session('status') }}
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                @endif
                 </tfoot>
               </table>
             </div>

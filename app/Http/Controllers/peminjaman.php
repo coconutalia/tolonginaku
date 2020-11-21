@@ -25,17 +25,17 @@ class peminjaman extends Controller
    // method untuk edit data pegawai
     public function edit($id)
     {
-        // mengambil data pegawai berdasarkan id yang dipilih
+        // mengambil data peminjaman berdasarkan id yang dipilih
         $peminjaman = DB::table('peminjaman')->where('id',$id)->get();
-        // passing data pegawai yang didapat ke view edit.blade.php
+        // passing data peminjaman yang didapat ke view admin.edit_peminjaman
         return view('admin.edit_peminjaman',['data_peminjaman' => $peminjaman]);
     
     }
 
-    // update data pegawai
+    // update data peminjaman
     public function update(Request $request)
     {
-        // update data pegawai
+        // update data peminjaman
         DB::table('peminjaman')->where('id',$request->id)->update([
             // 'acara' => $request->acara,
             // 'ruang' => $request->ruang,
@@ -46,8 +46,8 @@ class peminjaman extends Controller
             // 'waktu_selesai' => $request->waktu_selesai,
             'aksi' => $request->aksi
         ]);
-        // alihkan halaman ke halaman pegawai
-        return redirect('/p');
+        // alihkan halaman ke halaman tabel peminjaman
+        return redirect('/p')->with('status', 'Berhasil disimpan!');
     }
 
     /**

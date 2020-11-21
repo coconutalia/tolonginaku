@@ -31,10 +31,10 @@
 	<form action="/ruang/store" method="post">
 		{{ csrf_field() }}
         <br/>
-                <div class="form-group d-flex align-items-center">
+                <!-- <div class="form-group d-flex align-items-center">
                     <label class="control-label col-sm-2" for="id">ID:</label>
                     <input class="col-sm-9" type="text" required="required" name="id">
-                </div>
+                </div> -->
 
                 <div class="form-group d-flex align-items-center">
                     <label class="control-label col-sm-2" for="nama_ruang">Nama Ruang:</label>

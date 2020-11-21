@@ -24,49 +24,49 @@ class ruang extends Controller
 
    public function edit($id)
     {
-        // mengambil data pegawai berdasarkan id yang dipilih
+        // mengambil data ruang berdasarkan id yang dipilih
         $ruang = DB::table('ruang')->where('id',$id)->get();
-        // passing data pegawai yang didapat ke view edit.blade.php
+        // passing data ruang yang didapat ke view admin.edit_ruang
         return view('admin.edit_ruang',['data_ruang' => $ruang]);
     
     }
 
-    // update data pegawai
+    // update data ruang
     public function update(Request $request)
     {
 
-        // update data pegawai
+        // update data ruang
         DB::table('ruang')->where('id',$request->id)->update([
             'nama_ruang' => $request->nama_ruang,
             'alamat_ruang' => $request->alamat_ruang,
             'deskripsi' => $request->deskripsi,
             'kuota' => $request->kuota
         ]);
-        // alihkan halaman ke halaman pegawai
+        // alihkan halaman ke halaman ruang
         return redirect('/ruang')->with('status', 'Berhasil disimpan!');
     }
 
     public function hapus($id)
     {
-        // menghapus data pegawai berdasarkan id yang dipilih
+        // menghapus data ruang berdasarkan id yang dipilih
         DB::table('ruang')->where('id',$id)->delete();
         // \Session::flash('notifikasi', 'berhasil dihapus.');
-        // alihkan halaman ke halaman pegawai
+        // alihkan halaman ke halaman ruang
         return redirect('/ruang')->with('status', 'Berhasil dihapus!');
     }
 
-    // method untuk menampilkan view form tambah pegawai
+    // method untuk menampilkan view form tambah ruang
     public function tambah()
     {
     
         // memanggil view tambah
-        return view('admin.tambah_ruang')->with('status', 'Berhasil ditambahkan!');
+        return view('admin.tambah_ruang');
     
     }
-    // method untuk insert data ke table pegawai
+    // method untuk insert data ke table ruang
     public function store(Request $request)
     {
-        // insert data ke table pegawai
+        // insert data ke table ruang
         DB::table('ruang')->insert([
             'id' => $request->id,
             'nama_ruang' => $request->nama_ruang,
@@ -74,8 +74,8 @@ class ruang extends Controller
             'deskripsi' => $request->deskripsi,
             'kuota' => $request->kuota
         ]);
-        // alihkan halaman ke halaman pegawai
-        return redirect('/ruang');
+        // alihkan halaman ke halaman tabel ruang
+        return redirect('/ruang')->with('status', 'Berhasil ditambahkan!');
     
     }
 

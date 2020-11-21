@@ -48,6 +48,10 @@ Route::get('/user/hapus/{id}','daftarUser@hapus');
 Route::get('/user/tambah','daftarUser@tambah');
 Route::post('/user/store','daftarUser@store');
 
+Route::get('/export-pdf', 'controllerExport@exportPDF');
+Route::get('/export-pdf-bulan', 'controllerExport@exportPDF_month');
+Route::get('/export-pdf-tahun', 'controllerExport@exportPDF_year');
+
 // USER
 
 /*

@@ -32,10 +32,10 @@
 	<form class="form-horizontal" action="/user/update" method="post">
 		{{ csrf_field() }}
 		<input type="hidden" name="id" value="{{ $data->id }}"> <br/>
-                <div class="form-group">
+                <!-- <div class="form-group">
                     <label class="control-label col-sm-2" for="ktm">KTM:</label>
-                    <input class="col-sm-9" type="text" required="required" name="ktm" value="{{ $data->ktm }}">
-                </div>
+                    <input class="col-sm-9" type="image" required="required" name="ktm" src="{{url('/image/'.$data->ktm)}}" value="{{ $data->ktm }}">
+                </div> -->
 
                 <div class="form-group">
                     <label class="control-label col-sm-2" for="name">Nama:</label>
