@@ -34,7 +34,7 @@
 		<input type="hidden" name="id" value="{{ $data->id }}"> <br/>
                 <!-- <div class="form-group">
                     <label class="control-label col-sm-2" for="ktm">KTM:</label>
-                    <input class="col-sm-9" type="image" required="required" name="ktm" src="{{url('/image/'.$data->ktm)}}" value="{{ $data->ktm }}">
+                    <input  class="col-sm-9" type="file" required="required" name="ktm" value="{{ $data->ktm }}">
                 </div> -->
 
                 <div class="form-group">

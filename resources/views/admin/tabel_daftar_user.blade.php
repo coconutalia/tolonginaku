@@ -33,11 +33,11 @@
             <td><a type="button" class="btn btn-primary" href="/user/tambah">Tambah Anggota</a></td>
             </div>
             <!-- /.card-header -->
-            <div style="Overflow:scroll" class="card-body" style="Overflow:scroll">
-              <table  id="example2" class="table table-bordered table-hover">
+            <div class="card-body" style="Overflow:scroll">
+              <table id="example2" class="table table-bordered table-hover">
                 <thead>
                 <tr>
-                  <th>ID</th>
+                  <th>No</th>
                   <th>KTM</th>
                   <th style="text-align: center; width:20%;">Nama Lengkap</th>
                   <th>Fakultas</th>
@@ -53,9 +53,10 @@
                 </tr>
                 </thead>
                 <tbody>
+                @php $no = 1; @endphp
                 @foreach($data_user as $data)
                 <tr>
-                  <td>{{$data->id}}</td>
+                  <td>{{$no++}}</td>
                   <td><img width="100" src="{{url('/image/'.$data->ktm)}}" alt="">{{$data->ktm}}</td>
                   <td>{{$data->name}}</td>
                   <td>{{$data->fakultas}}</td>

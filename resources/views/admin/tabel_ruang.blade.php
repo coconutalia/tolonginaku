@@ -37,7 +37,7 @@
               <table id="example2" class="table table-bordered table-hover">
                 <thead>
                 <tr>
-                  <th>ID</th>
+                  <th>No</th>
                   <th>Nama Ruang</th>
                   <th>Alamat Ruang</th>
                   <th>Deskripsi</th>

@@ -19,7 +19,7 @@
                   <th>Tanggal</th>
                   <th>Waktu Mulai</th>
                   <th>Waktu Selesai</th>
-                  <th>Aksi</th>
+                  <th>Status</th>
                 </tr>
                 </thead>
                 <tbody>

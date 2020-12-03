@@ -283,6 +283,8 @@
   $(function () {
     $("#example1").DataTable();
     $('#example2').DataTable({
+      "scrollY":true,
+      "scrollX":true,
       "paging": true,
       "lengthChange": true,
       "searching": true,

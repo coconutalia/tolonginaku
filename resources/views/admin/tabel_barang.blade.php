@@ -38,7 +38,7 @@
               <table id="example2" class="table table-bordered table-hover">
                 <thead>
                   <tr>
-                    <th>ID</th>
+                    <th>No</th>
                     <th>Nama Barang</th>
                     <th>Jumlah Barang</th>
                     <th>Barang Tersedia</th>
@@ -49,9 +49,10 @@
                   </tr>
                 </thead>
                 <tbody>
+                 @php $no = 1; @endphp
                   @foreach($data_barang as $data)
                   <tr id="kolom-{{$data->id}}">
-                    <td>{{$data->id}}</td>
+                    <td>{{$no++}}</td>
                     <td>{{$data->nama_barang}}</td>
                     <td>{{$data->total_barang}}</td>
                     <td>{{$data->barang_tersedia}}</td>

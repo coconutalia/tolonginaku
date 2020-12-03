@@ -38,9 +38,9 @@
         <!-- small box -->
         <div class="small-box bg-info">
           <div class="inner">
-            <h3>65</h3>
+            <h5>Informasi</h5>
 
-            <p>Peminjaman Hari Ini</p>
+            <h3>Peminjaman</h3>
           </div>
           <div class="icon">
             <i class="ion ion-pie-graph"></i>
@@ -52,9 +52,9 @@
         <!-- small box -->
         <div class="small-box bg-warning">
           <div class="inner">
-            <h3>44</h3>
+            <h5>Informasi</h5>
 
-            <p>Jumlah Registrasi User Hari Ini</p>
+            <h3>Daftar User</h3>
           </div>
           <div class="icon">
             <i class="ion ion-person-add"></i>
@@ -68,9 +68,9 @@
         <!-- small box -->
         <div class="small-box bg-default">
           <div class="inner">
-            <h3>65</h3>
+            <h5>Informasi</h5>
 
-            <p>Informasi Barang </p>
+            <h3>Barang</h3>
           </div>
           <div class="icon">
             <i class="ion ion-pie-graph"></i>
@@ -81,11 +81,10 @@
       <!-- ./col -->
       <div class="col-lg-6 col-6">
         <!-- small box -->
-        <div class="small-box bg-default">
+        <div class="small-box bg-danger">
           <div class="inner">
-            <h3>65</h3>
-
-            <p>Informasi Ruang</p>
+            <h5>Informasi</h5>
+            <h3>Ruang</h3>
           </div>
           <div class="icon">
             <i class="ion ion-pie-graph"></i>

@@ -78,6 +78,7 @@ class daftarUser extends Controller
         );
         $messages = [
             'same' => 'Password tidak sesuai',
+            'email' => 'Email tidak valid',
         ];
         $validator = Validator::make($request->all(), $rules, $messages);
              if ($validator->fails()) {
